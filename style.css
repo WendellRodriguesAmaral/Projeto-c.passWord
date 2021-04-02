@@ -6,6 +6,7 @@
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;;
 }
+
 body{
     width: 100%;
     height: 100vh;
@@ -21,6 +22,7 @@ body{
     text-align: center;
     border:solid rgb(102, 102, 102) 3px;
 }
+
 section{
     display:flex;
     justify-content:center;
@@ -28,22 +30,26 @@ section{
     width: 100%;
     text-align: center;
 }
+
 img{
     width: 180px;
     height: 206px;
 }
+
 section.inputs{
     background-color:rgb(218, 218, 218);
     width:100%;
     height: 260px;
     align-items: flex-start;
 }
+
 form{
     margin-top:20px;
 }
 input{
     margin:5px;
 }
+
 input[type="text"]{
     width:350px;
     height: 60px;
@@ -57,13 +63,16 @@ input[type="text"]{
     background-color:rgb(218, 218, 218);
     margin-bottom: 0;
 }
+
 span{
    font-size: 20px;
 }
+
 #caracter{
     margin-top: 5px;
     display: inline-block;
 }
+
 button{
     display: block;
     margin: 10px auto;
@@ -76,6 +85,7 @@ button{
     color:rgb(224, 224, 224);
     outline:none;
 }
+
 button:hover{
     cursor: pointer;
     box-shadow: 2px 2px 8px 3px rgb(160, 160, 160);

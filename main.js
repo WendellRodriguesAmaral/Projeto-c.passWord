@@ -12,16 +12,20 @@ let powerPW = document.querySelector("small#powerPW")
 
 PWheight.addEventListener("input" , () => span.innerHTML = PWheight.value )
 
-function power(value){
-    if(value == 7){
-        powerPW.innerHTML = "SENHA FRACA"
-        powerPW.style.color = "red"
-    } else if(value == 10){
-        powerPW.innerHTML = "SENHA MÉDIA"
-        powerPW.style.color = "#c28e00"
+function power(arr){
+    if(arr.length === 0){
+        return ""
     } else{
-        powerPW.innerHTML = "SENHA FORTE"
-        powerPW.style.color = "green"
+        if(arr.length == 1){
+            powerPW.innerHTML = "SENHA FRACA"
+            powerPW.style.color = "red"
+        } else if(arr.length == 2){
+            powerPW.innerHTML = "SENHA MÉDIA"
+            powerPW.style.color = "#c28e00"
+        } else{
+            powerPW.innerHTML = "SENHA FORTE"
+            powerPW.style.color = "green"
+        }
     }
 }
 
@@ -41,11 +45,7 @@ button.addEventListener("click", (b)=>{
         finalPass += newPass.charAt(Math.floor(Math.random()*newPass.length)) 
     }
     res.value = finalPass
-
-    power(PWheight.value)
-
-    console.log(pass)
-    console.log(newPass)
+    power(pass)
 })
 
 

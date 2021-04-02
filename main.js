@@ -13,7 +13,16 @@ let powerPW = document.querySelector("small#powerPW")
 PWheight.addEventListener("input" , () => span.innerHTML = PWheight.value )
 
 function power(value){
-    
+    if(value == 7){
+        powerPW.innerHTML = "SENHA FRACA"
+        powerPW.style.color = "red"
+    } else if(value == 10){
+        powerPW.innerHTML = "SENHA MÉDIA"
+        powerPW.style.color = "#c28e00"
+    } else{
+        powerPW.innerHTML = "SENHA FORTE"
+        powerPW.style.color = "green"
+    }
 }
 
 button.addEventListener("click", (b)=>{
@@ -33,7 +42,7 @@ button.addEventListener("click", (b)=>{
     }
     res.value = finalPass
 
-    powerPW.innerHTML = power(PWheight.value)
+    power(PWheight.value)
 
     console.log(pass)
     console.log(newPass)

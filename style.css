@@ -16,7 +16,7 @@ body{
 
 .all{
     background-color:rgb(194, 194, 194);
-    width: 600px;
+    width: 580px;
     height: 500px;
     text-align: center;
     border:solid rgb(102, 102, 102) 3px;
@@ -29,7 +29,8 @@ section{
     text-align: center;
 }
 img{
-    width: 150px;
+    width: 180px;
+    height: 206px;
 }
 section.inputs{
     background-color:rgb(218, 218, 218);
@@ -44,7 +45,7 @@ input{
     margin:5px;
 }
 input[type="text"]{
-    width:300px;
+    width:350px;
     height: 60px;
     font-size: 40px;
     text-align: center;
@@ -54,6 +55,7 @@ input[type="text"]{
     border-radius: 2px;
     color:rgb(58, 58, 58);
     background-color:rgb(218, 218, 218);
+    margin-bottom: 0;
 }
 span{
    font-size: 20px;
@@ -80,6 +82,12 @@ button:hover{
     color:rgb(255, 255, 255);
 }
 
+small#powerPW{
+    display: block;
+    margin-top:-5px;
+    font-size:.8rem;
+    font-weight:700;
+}
 
 small{
     display: inline-block;

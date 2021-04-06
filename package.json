@@ -1,0 +1,22 @@
+{
+  "name": "c.password",
+  "version": "1.0.0",
+  "description": "Gerador de senhas simples, projeto para fins de estudo e prática.",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WendellRodriguesAmaral/Projeto-c.passWord.git"
+  },
+  "author": "Wendell Rodrigues",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WendellRodriguesAmaral/Projeto-c.passWord/issues"
+  },
+  "homepage": "https://github.com/WendellRodriguesAmaral/Projeto-c.passWord#readme",
+  "devDependencies": {
+    "electron": "^12.0.2"
+  }
+}

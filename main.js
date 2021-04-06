@@ -9,6 +9,7 @@ const button =  document.querySelector("button")
 let res = document.querySelector("input#res")
 let powerPW = document.querySelector("small#powerPW")
 
+
 PWheight.addEventListener("input" , () => span.innerHTML = PWheight.value )
 
 function power(arr){

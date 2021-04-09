@@ -2,10 +2,10 @@
 
 #### Tecnologias utilizadas 💻
 
-	* HTML
-	* CSS
-	* JavaScript
-	* Electron
+* HTML
+* CSS
+* JavaScript
+* Electron
 
 ## Descrição do projeto 📑
 
@@ -21,14 +21,14 @@ Ele permite escolher quantos e quais caracteres você deseja que sua senha possu
 
 ### Conceitos Aplicados 📚
 
-	- [x] HTML Dinâmico
-	- [x] Manipulação do DOM
-	- [x] Funções
-	- [x] Operadores ternários
+- [x] HTML Dinâmico
+- [x] Manipulação do DOM
+- [x] Funções
+- [x] Operadores ternários
 
-	- [x] Capitação de eventos do mouse
-	- [x] Condicionais
-	- [x] Loops
+- [x] Capitação de eventos do mouse
+- [x] Condicionais
+- [x] Loops
 
 ---
 

@@ -14,31 +14,26 @@ let $passwordStatus = document.querySelector("small#powerPW");
 
 $passwordLength.addEventListener("input", () => ($currentPasswordLength.innerHTML = $passwordLength.value));
 
-function power(arr) {
-  if (arr.length === 0) {
-    return "";
-  } else {
-    if (arr.length == 1) {
-      $passwordStatus.innerHTML = "SENHA FRACA";
-      $passwordStatus.style.color = "red";
-    } else if (arr.length == 2) {
-      $passwordStatus.innerHTML = "SENHA MÉDIA";
-      $passwordStatus.style.color = "#c28e00";
-    } else {
-      $passwordStatus.innerHTML = "SENHA FORTE";
-      $passwordStatus.style.color = "green";
-    }
-  }
+function getPasswordStatus({ length }) {
+  if (length === 0) return "";
+
+  const status = {
+    1: { label: "SENHA FRACA", color: "red" },
+    2: { label: "SENHA MÉDIA", color: "#c28e00" },
+    3: { label: "SENHA FORTE", color: "green" },
+  };
+
+  return status[length];
 }
 
 $generate.addEventListener("click", (event) => {
   generatedPassword = "";
   event.preventDefault();
-  const pass = $checkboxes.filter((input) => input.checked).map((input) => input.dataset.value);
+  const passwordOptions = $checkboxes.filter((input) => input.checked).map((input) => input.dataset.value);
 
-  pass.includes("Num") ? (generatedPassword += numberCharacters) : "";
-  pass.includes("Esp") ? (generatedPassword += specialCharacters) : "";
-  pass.includes("Ltr") ? (generatedPassword += letters) : "";
+  passwordOptions.includes("Num") ? (generatedPassword += numberCharacters) : "";
+  passwordOptions.includes("Esp") ? (generatedPassword += specialCharacters) : "";
+  passwordOptions.includes("Ltr") ? (generatedPassword += letters) : "";
 
   let finalPass = "";
   for (let i = 0; i < $passwordLength.value; i++) {
@@ -46,5 +41,8 @@ $generate.addEventListener("click", (event) => {
     finalPass += generatedPassword.charAt(Math.floor(Math.random() * generatedPassword.length));
   }
   $generatedPassword.value = finalPass;
-  power(pass);
+
+  const { label, color } = getPasswordStatus(passwordOptions);
+  $passwordStatus.innerHTML = label;
+  $passwordStatus.style.color = color;
 });

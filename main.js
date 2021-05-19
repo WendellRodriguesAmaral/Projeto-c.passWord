@@ -1,8 +1,8 @@
-const specialCharacters = `!@#$%¨&*_-+º^~.;/?`;
-const numberCharacters = `1234567890`;
-const letters = `abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`;
-
-let generatedPassword = "";
+const passwordOptions = {
+  numbers: "1234567890",
+  specialCharacters: "!@#$%¨&*_-+º^~.;/?",
+  letters: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+};
 
 const $passwordLength = document.querySelector("input#Tam");
 const $currentPasswordLength = document.querySelector("span#TamValue");
@@ -27,22 +27,24 @@ function getPasswordStatus({ length }) {
 }
 
 $generate.addEventListener("click", (event) => {
-  generatedPassword = "";
   event.preventDefault();
-  const passwordOptions = $checkboxes.filter((input) => input.checked).map((input) => input.dataset.value);
 
-  passwordOptions.includes("Num") ? (generatedPassword += numberCharacters) : "";
-  passwordOptions.includes("Esp") ? (generatedPassword += specialCharacters) : "";
-  passwordOptions.includes("Ltr") ? (generatedPassword += letters) : "";
+  const passwordOptions = $checkboxes
+    .filter((input) => input.checked)
+    .map(({ dataset: { option } }) => passwordOptions[option]);
 
-  let finalPass = "";
-  for (let i = 0; i < $passwordLength.value; i++) {
-    // chatAt retorna o elemento da posição passada
-    finalPass += generatedPassword.charAt(Math.floor(Math.random() * generatedPassword.length));
-  }
-  $generatedPassword.value = finalPass;
+  const mergedOptions = [...passwordOptions];
+
+  const newPassword = pickRandomValues(passwordOptions.length, mergedOptions);
+
+  $generatedPassword.value = newPassword;
 
   const { label, color } = getPasswordStatus(passwordOptions);
   $passwordStatus.innerHTML = label;
   $passwordStatus.style.color = color;
 });
+
+function pickRandomValues(qtd, arr) {
+  const randomIndex = () => Math.floor(Math.random() * arr.length);
+  return Array.from(Array(qtd), () => arr[randomIndex()]).join("");
+}

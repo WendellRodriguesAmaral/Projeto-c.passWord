@@ -2,7 +2,7 @@ const $passwordLength = document.querySelector("input#Tam");
 const $currentPasswordLength = document.querySelector("span#TamValue");
 const $checkboxes = [...document.querySelectorAll("input[type=checkbox]")];
 const $btnGenerate = document.querySelector("button");
-const $generatedPassword = document.querySelector("input#res");
+const $generatedPassword = document.getElementById("res");
 const $passwordStatus = document.querySelector("small#powerPW");
 
 $passwordLength.addEventListener(
@@ -14,11 +14,11 @@ $btnGenerate.addEventListener("click", (event) => {
   event.preventDefault();
 
   const passwordOptions = getUserOptions($checkboxes);
-  const mergedOptions = [...passwordOptions];
-  const newPassword = pickRandomValues(passwordOptions.length, mergedOptions);
+  const mergedOptions = passwordOptions.join("");
+  const newPassword = pickRandomValues($passwordLength.value, mergedOptions);
   $generatedPassword.value = newPassword;
 
-  const { label, color } = getPasswordStatus(passwordOptions);
+  const { label = "", color = "" } = getPasswordStatus(passwordOptions);
   $passwordStatus.innerHTML = label;
   $passwordStatus.style.color = color;
 });
@@ -37,7 +37,7 @@ function getUserOptions($checkboxes) {
 
 function pickRandomValues(qtd, arr) {
   const randomIndex = () => Math.floor(Math.random() * arr.length);
-  return Array.from(Array(qtd), () => arr[randomIndex()]).join("");
+  return Array.from(Array(+qtd), () => arr[randomIndex()]).join("");
 }
 
 function getPasswordStatus({ length }) {
